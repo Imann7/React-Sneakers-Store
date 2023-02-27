@@ -1,6 +1,6 @@
 import React from "react";
 
-const Overlay = (props) => {
+const Overlay = ({ onClickClose, items }) => {
   return (
     <div className="overlay">
       <div className="basket">
@@ -12,25 +12,28 @@ const Overlay = (props) => {
             className=" remove "
             src="remove.svg"
             alt="remove"
-            onClick={props.onClickClose}
+            onClick={onClickClose}
           />
         </h2>
 
         <div className="items">
-          {props.items.map((obj) => {
-            <div className="item d-flex align-center mb-30">
-              <img src={obj.imageUrl} width={90} height={90} />
-
-              <div className="ml-30  ">
-                <p>{obj.name} </p>
-                <span>{obj.sex}</span>
-                <div className="mt-10">
-                  <b>{obj.price}</b>
+          {items.map((item) => {
+            return (
+              <div className="item d-flex align-center mb-30">
+                <img
+                  width={100}
+                  height={100}
+                  src={item.imageUrl}
+                  alt={item.name}
+                />
+                <div className="ml-20">
+                  <h3>{item.name}</h3>
+                  <p className="sex">{item.sex}</p>
+                  <b>{item.price}</b>
                 </div>
+                <img className=" remove" src="remove.svg" alt="remove" />
               </div>
-
-              <img className=" remove ml-50" src="remove.svg" alt="remove" />
-            </div>;
+            );
           })}
         </div>
 
