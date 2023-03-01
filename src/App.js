@@ -1,76 +1,95 @@
-import Card from "./components/Card";
 
+import axios from "axios";
 import Header from "./components/Header";
 import Overlay from "./components/Overlay";
 import React from "react";
+import { Route, Routes } from 'react-router-dom';
+
+import Home from "./components/pages/Home";
+import Favourite from "./components/pages/Favourite";
+
 
 function App() {
   const [items, setItems] = React.useState([]);
   const [searchValue, setSearch] = React.useState("");
   const [cartOpen, setCart] = React.useState(false);
   const [cartItems, setCartItems] = React.useState([]);
+  const [favourite, setFavourite] = React.useState([]);
+  const [favItems, setFavItems] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("https://63fb60872027a45d8d656477.mockapi.io/items")
+    axios
+      .get("https://63fb60872027a45d8d656477.mockapi.io/items")
       .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        setItems(json);
+        setItems(response.data);
+      });
+    axios
+      .get("https://63fb60872027a45d8d656477.mockapi.io/cart")
+      .then((response) => {
+        setCartItems(response.data);
+      });
+      axios
+      .get("https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite")
+      .then((response) => {
+        setFavourite(response.data);
       });
   }, []);
 
   const addToCart = (obj) => {
+    axios.post("https://63fb60872027a45d8d656477.mockapi.io/cart", obj);
+
     setCartItems([...cartItems, obj]);
   };
+
+  const onFav = (obj) => {
+    axios.post("https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite", obj);
+
+    setFavItems([...favItems, obj]);
+  };
+  
 
   const searchInput = (event) => {
     setSearch(event.target.value);
   };
 
+  const onRemoveItem = (id) => {
+    axios.delete(`https://63fb60872027a45d8d656477.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="wrapper">
       {cartOpen && (
-        <Overlay items={cartItems} onClickClose={() => setCart(false)} />
+        <Overlay
+          onRemove={onRemoveItem}
+          items={cartItems}
+          onClickClose={() => setCart(false)}
+        />
       )}
 
       <Header onClickCart={() => setCart(true)} />
 
-      <div className="content">
-        <div className="d-flex align-center justify-between">
-          <h2>
-            {searchValue ? `Search by request:  "${searchValue}"` : "Sneakers"}
-          </h2>
 
-          <div className="search">
-            <input
-              value={searchValue}
-              onChange={searchInput}
-              className="search-in"
-              placeholder="Search..."
-            />
-            <img height={16} width={16} src="search.svg" alt="Search" />
-          </div>
-        </div>
-        <div className="sneakers d-flex flex-wrap">
-          {items
-            .filter((obj) =>
-              obj.name.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .map((obj, index) => (
-              <Card
-                key={index}
-                name={obj.name}
-                sex={obj.sex}
-                price={obj.price}
-                imageUrl={obj.imageUrl}
-                onPlus={(obj) => addToCart(obj)}
-              />
-            ))}
-        </div>
-      </div>
+
+      <Routes>
+        <Route path="/" element={<Home items = {items} 
+searchValue = {searchValue}
+    searchInput={searchInput}
+    onFav={onFav}
+    addToCart={addToCart}
+      />}
+        />
+
+        <Route path ="/favourite" element ={ <Favourite items ={favourite}/>}/> 
+      
+        
+      </Routes>
     </div>
   );
 }
 
+
+
 export default App;
+
+
