@@ -27,6 +27,7 @@ public: This folder contains the index.html file and other public assets such as
 
 
 Getting Started
+
 To get started with this project, follow the steps below:
 
 1 Clone this repository to your local machine.
