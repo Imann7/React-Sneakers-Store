@@ -9,8 +9,14 @@ Project Structure
 The project is structured as follows:
 
 src: This folder contains the source code for the React application.
+
 components: This folder contains all the reusable components used in the application.
+
 context: This folder contains the React Context for managing the application state.
+
 pages: This folder contains the main pages of the application.
+
 scss: This folder contains the SCSS files for styling the application.
+
 public: This folder contains the index.html file and other public assets such as images and icons.
+
