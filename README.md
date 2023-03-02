@@ -20,3 +20,16 @@ scss: This folder contains the SCSS files for styling the application.
 
 public: This folder contains the index.html file and other public assets such as images and icons.
 
+
+
+Getting Started
+To get started with this project, follow the steps below:
+
+1 Clone this repository to your local machine.
+
+2 Navigate to the project directory and install the dependencies using npm install.
+
+3 Run the development server using npm start.
+
+4 Open your browser and navigate to http://localhost:3000.
+
