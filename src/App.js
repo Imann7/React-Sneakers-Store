@@ -1,13 +1,11 @@
-
 import axios from "axios";
 import Header from "./components/Header";
 import Overlay from "./components/Overlay";
 import React from "react";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import Favourite from "./components/pages/Favourite";
-
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -28,7 +26,7 @@ function App() {
       .then((response) => {
         setCartItems(response.data);
       });
-      axios
+    axios
       .get("https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite")
       .then((response) => {
         setFavourite(response.data);
@@ -42,11 +40,17 @@ function App() {
   };
 
   const onFav = (obj) => {
-    axios.post("https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite", obj);
+    if (favourite.find((favObj) => favObj.id === obj.id)) {
+      axios.delete(
+        `https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite/${obj.id}`
+      );
+      setFavItems((prev) => prev.filter((item) => item.id !== obj.id));
+    } else {
+      axios.post("https://63fe76d6571200b7b7cb49bf.mockapi.io/favourite", obj);
 
-    setFavItems([...favItems, obj]);
+      setFavItems([...favItems, obj]);
+    }
   };
-  
 
   const searchInput = (event) => {
     setSearch(event.target.value);
@@ -69,27 +73,27 @@ function App() {
 
       <Header onClickCart={() => setCart(true)} />
 
-
-
       <Routes>
-        <Route path="/" element={<Home items = {items} 
-searchValue = {searchValue}
-    searchInput={searchInput}
-    onFav={onFav}
-    addToCart={addToCart}
-      />}
+        <Route
+          path="/"
+          element={
+            <Home
+              items={items}
+              searchValue={searchValue}
+              searchInput={searchInput}
+              onFav={onFav}
+              addToCart={addToCart}
+            />
+          }
         />
 
-        <Route path ="/favourite" element ={ <Favourite items ={favourite}/>}/> 
-      
-        
+        <Route
+          path="/favourite"
+          element={<Favourite onFav={onFav} items={favourite} />}
+        />
       </Routes>
     </div>
   );
 }
 
-
-
 export default App;
-
-

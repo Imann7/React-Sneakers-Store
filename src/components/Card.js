@@ -1,8 +1,17 @@
 import React from "react";
 
-const Card = ({ onPlus,onFavorite, name, sex, price, imageUrl }) => {
+const Card = ({
+  id,
+  onPlus,
+  onFavorite,
+  name,
+  sex,
+  price,
+  imageUrl,
+  favorited = false,
+}) => {
   const [added, setAdded] = React.useState(false);
-  const [addFav, setAddedFav] = React.useState(false);
+  const [addFav, setAddedFav] = React.useState(favorited);
 
   const plusClick = () => {
     onPlus({ name, sex, price, imageUrl });
@@ -14,8 +23,7 @@ const Card = ({ onPlus,onFavorite, name, sex, price, imageUrl }) => {
   };
 
   const favClick = () => {
-
-    onFavorite({ name, sex, price, imageUrl });
+    onFavorite({ id, name, sex, price, imageUrl });
     setAddedFav(!addFav);
   };
 
