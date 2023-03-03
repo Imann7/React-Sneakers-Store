@@ -1,9 +1,9 @@
 #React-Sneakers
 
-This is the README file for the React-Sneakers Course. The course focuses on building a ReactJS application using hooks, React Router, Axios, SCSS, React Context, React Skeleton and Macro-css library(something like tailwind) to simulate a mock sneaker e-commerce website.
+This is the README file for the React-Sneakers. The project focuses on building a ReactJS application using hooks, React Router, Axios, SCSS, React Context, React Skeleton and Macro-css library(something like tailwind) to simulate a mock sneaker e-commerce website.
 
 Project Description
-This course provides a step-by-step guide on building a ReactJS application that enables users to browse and purchase sneakers. The application makes use of several popular libraries such as React Router for navigation, Axios for API calls, SCSS for styling, React Context for state management, and React Skeleton for loading animations.
+This project provides a step-by-step guide on building a ReactJS application that enables users to browse and purchase sneakers. The application makes use of several popular libraries such as React Router for navigation, Axios for API calls, SCSS for styling, React Context for state management, and React Skeleton for loading animations.
 
 
 
