@@ -5,7 +5,7 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
     <div className="overlay">
       <div className="basket">
         <h2 className=" mb-50 d-flex justify-between">
-          Cart
+         CART
           <img
             height={32}
             width={32}
@@ -21,7 +21,7 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
             <div className="items">
               {items.map((item) => {
                 return (
-                  <div className="item d-flex align-center mb-30">
+                  <div key={item.id} className="item d-flex align-center mb-30">
                     <img
                       width={100}
                       height={100}

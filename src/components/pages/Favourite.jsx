@@ -6,7 +6,7 @@ const Favourite = ({ items, onFav, onClickClose, addToCart }) => {
   return (
     <div className="content  ">
       <div className="d-flex  align-center ">
-        <h2>Favourites</h2>
+        <h2>FAVOURITES</h2>
       </div>
 
       {items.length > 0 ? (
