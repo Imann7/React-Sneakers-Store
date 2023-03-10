@@ -46,7 +46,7 @@ const Home = ({
           <img height={16} width={16} src="search.svg" alt="Search" />
         </div>
       </div>
-      <div className="sneakers d-flex flex-wrap">{renderItems()};</div>
+      <div className="sneakers d-flex flex-wrap">{renderItems()}</div>
     </div>
   );
 };

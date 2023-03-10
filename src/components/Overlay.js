@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Overlay = ({ onClickClose, onRemove, items }) => {
+ 
+
   return (
     <div className="overlay">
       <div className="basket">
         <h2 className=" mb-50 d-flex justify-between">
-         CART
+          CART
           <img
             height={32}
             width={32}
@@ -53,7 +56,10 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
                 <b>VAT 1%:</b>
                 <b>$2</b>
               </div>
-              <button className="greenButton mt-50">CONFIRM ORDER ➜</button>
+
+              <button onClick={onClickClose} className="greenButton mt-50">
+                CONFIRM ORDER ➜
+              </button>
             </div>
           </div>
         ) : (
@@ -64,8 +70,8 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
               height={120}
               src="empty-cart.jpg"
             />
-            <h2>Cart is empty</h2>
-            <p>Add at least one sneaker, for making order.</p>
+            <h2>Cart is Empty</h2>
+            <p>Add at least one sneaker to make order</p>
             <button onClick={onClickClose} className="greenButton">
               Go back
             </button>
