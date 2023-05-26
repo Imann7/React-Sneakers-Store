@@ -6,6 +6,9 @@ import { Route, Routes } from "react-router-dom";
 
 import Home from "./components/pages/Home";
 import Favourite from "./components/pages/Favourite";
+import Main from "./components/pages/Main";
+import Footer from "./components/pages/Footer";
+import About from "./components/pages/About";
 
 const AppContext = React.createContext({});
 
@@ -97,7 +100,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/"
+            path="/products"
             element={
               <Home
                 items={items}
@@ -114,7 +117,16 @@ function App() {
             path="/favourite"
             element={<Favourite onFav={onFav} items={favourite} />}
           />
+           <Route
+            path="/"
+            element={<Main />}
+          />
+             <Route
+            path="/about"
+            element={<About/>}
+          />
         </Routes>
+        <Footer/>
       </div>
     </AppContext.Provider>
   );

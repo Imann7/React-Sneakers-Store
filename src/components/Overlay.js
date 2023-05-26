@@ -8,7 +8,7 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
     <div className="overlay">
       <div className="basket">
         <h2 className=" mb-50 d-flex justify-between">
-          CART
+          YOUR CART
           <img
             height={32}
             width={32}
@@ -49,15 +49,12 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
 
             <div className="bottomItems mt-50">
               <div className="d-flex justify-between mb-20">
-                <b>SUBTOTAL:</b>
-                <b>$600</b>
+                <b>TOTAL:</b>
+                <b>$0.00</b>
               </div>
-              <div className="d-flex justify-between">
-                <b>VAT 1%:</b>
-                <b>$2</b>
-              </div>
+              
 
-              <button onClick={onClickClose} className="greenButton mt-50">
+              <button onClick={onClickClose} className="blackButton mt-10">
                 CONFIRM ORDER ➜
               </button>
             </div>
@@ -66,13 +63,13 @@ const Overlay = ({ onClickClose, onRemove, items }) => {
           <div className="cartEmpty  d-flex align-center justify-center flex-column flex">
             <img
               className="mb-20"
-              width={120}
-              height={120}
-              src="empty-cart.jpg"
+              width={240}
+              height={240}
+              src="emptycart.jpg"
             />
-            <h2>Cart is Empty</h2>
-            <p>Add at least one sneaker to make order</p>
-            <button onClick={onClickClose} className="greenButton">
+          
+        
+            <button onClick={onClickClose} className="blackButton">
               Go back
             </button>
           </div>
