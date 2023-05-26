@@ -32,21 +32,25 @@ const Home = ({
 
   return (
     <div className="content">
-      <div className="d-flex align-center justify-between">
+      <div className="banner2"></div>
+      <div className="d-flex align-center justify-center">
         <h2>
-          {searchValue ? `Search by request:  "${searchValue}"` : "SNEAKERS"}
+         <span>{searchValue ? `` :  " OUR "}</span>&nbsp;{searchValue ? `Search by request:  "${searchValue}"` :  "PRODUCTS"}
         </h2>
-        <div className="search">
+       
+        
+      </div>
+      <div className="search">
+      <img height={16} width={16} src="search.svg" alt="Search" />
           <input
             value={searchValue}
             onChange={searchInput}
             className="search-in"
             placeholder="Search..."
           />
-          <img height={16} width={16} src="search.svg" alt="Search" />
+          
         </div>
-      </div>
-      <div className="sneakers d-flex flex-wrap">{renderItems()}</div>
+      <div className="sneakers d-flex flex-wrap">{renderItems()} </div>
     </div>
   );
 };

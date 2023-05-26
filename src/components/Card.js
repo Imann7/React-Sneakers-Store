@@ -41,7 +41,13 @@ const Card = ({
       />
       <img className="card-img" width={190} height={190} src={imageUrl} />
       <p>{name}</p>
-      <span>{sex}</span>
+      <div className="stars">  <img src="star.svg"></img>
+      <img src="star.svg"></img>
+      <img src="star.svg"></img>
+      <img src="star.svg"></img>
+      <img src="star2.svg"></img>
+      </div>
+    
       <div className="cardBottom">
         <div>
           <b>{price}</b>
@@ -51,7 +57,7 @@ const Card = ({
             onClick={plusClick}
             width={20}
             height={20}
-            src={added ? "btn-checked.svg" : "plus.png"}
+            src={added ? "btn-checked.svg" : "plus.svg"}
           />
         </button>
       </div>

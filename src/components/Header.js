@@ -6,29 +6,50 @@ const Header = (props) => {
     <header>
       <div className="headerLeft">
         <Link to="/">
-          <img className="logo" width={60} height={60} src="logo2.jpg" />
+          <img className="logo" width={50} height={50} src="basketball.png" />
         </Link>
         <div className="headerInfo">
-          <h3>React Sneakers</h3>
-          <span>The best sneakers store</span>
+          <h3 className="store-name">
+            SNEAKER<span>HUB</span>
+          </h3>
         </div>
+      </div>
+      <div className="headerMiddle">
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/products">Products</a>
+            </li>
+            <li>
+              <a href="/about">About Us</a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className="headerRight">
         <ul>
           <li>
-            <img
-              onClick={props.onClickCart}
-              className="mr-10 cu-p"
-              width={18}
-              height={18}
-              src="shop.svg"
-            />
-          </li>
-          <li>
             {" "}
             <Link to="/favourite">
-              <img width={18} height={18} src="heart.svg" />
+              <img
+                className="mr-10 cu-p"
+                width={22}
+                height={22}
+                src="heart.svg"
+              />
             </Link>
+          </li>
+          <li>
+            <img
+              onClick={props.onClickCart}
+              className="mr-50 cu-p"
+              width={22}
+              height={22}
+              src="shop.svg"
+            />
           </li>
         </ul>
       </div>
